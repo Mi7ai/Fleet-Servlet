@@ -39,8 +39,8 @@
 		 
 		if (request.getParameter("casilla") != null){
 				String casillas[] = request.getParameter("casilla").split("#");
-				int f = Integer.valueOf(casillas[0]);
-				int c = Integer.valueOf(casillas[1]);
+				fil = Integer.valueOf(casillas[0]);
+				col = Integer.valueOf(casillas[1]);
 			 
 		}	
 

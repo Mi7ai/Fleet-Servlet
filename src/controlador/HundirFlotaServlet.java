@@ -37,7 +37,6 @@ public class HundirFlotaServlet extends HttpServlet {
 		
 		//Pedimos la partida
 		HttpSession sesion = request.getSession(true);	
-		System.out.println("Partida: "+sesion.getAttribute("partida"));
 		
 		//Si no hay partida, la creamos, sino miramos si esta disparada o no
 		if (sesion.getAttribute("partida") == null) { 
@@ -48,11 +47,11 @@ public class HundirFlotaServlet extends HttpServlet {
 			partida = (Partida) sesion.getAttribute("partida");
 
 			if (request.getParameter("casilla") != null){
-					String posicionesCasilla[] = request.getParameter("casilla").split("#");
-					int f = Integer.valueOf(posicionesCasilla[0]);
-					int c = Integer.valueOf(posicionesCasilla[1]);
-					
+					String datosCasilla[] = request.getParameter("casilla").split("#");
+					int f = Integer.valueOf(datosCasilla[0]);
+					int c = Integer.valueOf(datosCasilla[1]);					
 					estadoCasillaDisparada = partida.casillaDisparada(f, c);
+					//System.out.println(estadoCasillaDisparada);
 					partida.pruebaCasilla(f, c);//devuelve el estado de la casilla, true/false	
 			}
 		}	
