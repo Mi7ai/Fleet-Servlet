@@ -32,7 +32,7 @@ table {
 	out.println("Barcos navegando: " + partida.getBarcosRestantes()+"<br>");
 	out.println("Barcos hundidos: " +(partida.getNumBarcos()-partida.getBarcosRestantes())+"<br>");
 	out.println("Numero de disparos efectuados: " +partida.getDisparos()+"<br>");
-	
+	//Diseño del tablero
 	out.println("<form style=\"text-align:center\" method=\"get\" action=\"HundirFlotaServlet\">");
 		out.println("<table>");
 			out.println("<tr>");
@@ -40,8 +40,8 @@ table {
 				
 				
 				for (int i = 0; i<TAMTABLA; i++){
-					char letra= (char) (i+65);
-					out.println("<th>"+letra+"</th>");
+					char letraActual= (char) (i+65);
+					out.println("<th>"+letraActual+"</th>");
 				}
 				
 				out.println("</tr>");
@@ -57,6 +57,7 @@ table {
 						}else{
 							color = "rojo";
 						}
+						//Impresion del color en el tablero
 						out.println("<td id=\""+color+"\""+"></td>");
 				}
 				out.println("</tr>");

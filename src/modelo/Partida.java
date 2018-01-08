@@ -52,9 +52,15 @@ public class Partida {
 	 * @return		resultado de marcar la casilla: AGUA, ya TOCADO, ya HUNDIDO, identidad del barco recien hundido
 	 */	
     public int pruebaCasilla(int f, int c) {
-        // POR IMPLEMENTAR
-
-    	int idBarco =mar[f][c];
+    	disparos++;
+    	/*
+    	 * Se pone a true si la pruebo
+    	 * */
+     	if (casillaDisparada(f,c) == false) {
+    		misDisparos[f][c] = true;
+    	}
+     	
+    	int idBarco = mar[f][c];
     	switch (idBarco) {
     	
 		case AGUA:
@@ -69,9 +75,7 @@ public class Partida {
  			return HUNDIDO;
 			 	 
 		default:
-			if (casillaDisparada(f,c) == false) {
-	    		misDisparos[f][c] = true;
-	    	}   
+			   
 			if (barcos.get(idBarco).tocaBarco()) {//si  esta hundido
 				Barco barco =barcos.get(idBarco);
 				int fila= barco.getFilaInicial();
